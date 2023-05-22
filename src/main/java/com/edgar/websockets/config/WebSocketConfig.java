@@ -2,6 +2,8 @@ package com.edgar.websockets.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
@@ -17,10 +19,10 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/ws")
         
         /* allow origins -> base URL of client */
-        .setAllowedOrigins("http://localhost:8443")
+        .setAllowedOrigins("*");
         
         /* enable sockJS for fall back options*/
-        .withSockJS();
+//        .withSockJS();
     }
 	
 	@Override
